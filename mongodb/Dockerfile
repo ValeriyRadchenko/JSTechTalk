@@ -1,0 +1,8 @@
+FROM mongo:3.4
+
+ENV MONGO_INITDB_ROOT_USERNAME=admin
+ENV MONGO_INITDB_ROOT_PASSWORD=admin
+
+EXPOSE 27017
+ENTRYPOINT ["docker-entrypoint.sh"]
+CMD ["mongod"]
