@@ -6,8 +6,8 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "docker-build-mongo": "docker build  -t jstechtalk/mongodb .",
-    "docker-run-mongo": "docker run -p 27017:27017 -v /tmp/db:/data/db --rm -ti --name mongodb jstechtalk/mongodb",
-    "docker-run-mongo-win": "docker run -p 27017:27017 --rm -ti --name mongodb jstechtalk/mongodb"
+    "docker-run-mongo": "docker run -p 27017:27017 -v /tmp/db:/data/db --rm -ti -d --name mongodb jstechtalk/mongodb",
+    "docker-run-mongo-win": "docker run -p 27017:27017 -v mongo-store:/data/db --rm -d -ti --name mongodb jstechtalk/mongodb"
   },
   "author": "Valerii Radchenko",
   "license": "ISC"
