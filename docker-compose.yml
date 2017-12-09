@@ -1,0 +1,41 @@
+version: '3'
+services:
+  client:
+    image: jstechtalk/angular-prod
+    restart: always
+    ports:
+      - "4200:4200"
+    networks:
+      - overlay
+    build:
+      context: ./angular-prod
+      dockerfile: ./angular-prod/Dockerfile
+  server:
+    image: jstechtalk/nodejs-simple
+    restart: always
+    depends_on:
+      - mongo
+    ports:
+      - "3000:3000"
+    networks:
+      - overlay
+    build:
+      context: ./nodejs-simple
+      dockerfile: ./nodejs-simple/Dockerfile
+  mongo:
+    image: jstechtalk/mongodb
+    restart: always
+    ports:
+      - "27017:27017"
+    volumes:
+      - "dbdata:/data/db"
+    networks:
+      - overlay
+    build:
+      context: ./mongodb
+      dockerfile: ./mongodb/Dockerfile
+volumes:
+  dbdata:
+networks:
+  overlay:
+    driver: bridge

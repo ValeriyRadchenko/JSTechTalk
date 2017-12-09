@@ -7,7 +7,7 @@ COPY ./package.json $HOME
 COPY ./package-lock.json $HOME
 RUN npm install
 
-COPY ./server.js $HOME
+COPY ./ $HOME
 
 EXPOSE 3000
 
