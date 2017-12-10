@@ -4,7 +4,7 @@ services:
     image: jstechtalk/angular-prod
     restart: always
     ports:
-      - "4200:4200"
+      - "4200:80"
     networks:
       - overlay
     build:
