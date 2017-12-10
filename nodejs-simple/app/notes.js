@@ -1,6 +1,6 @@
 const { promisify } = require('util');
 const MongoClient = require('mongodb').MongoClient;
-const mongoUrl = 'mongodb://admin:admin@mongo:27017';
+const mongoUrl = process.env.MONGODB_CONNECTION_STRING || 'mongodb://localhost:27017';
 
 const connect = promisify(MongoClient.connect);
 
